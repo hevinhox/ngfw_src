@@ -1,10 +1,10 @@
 Ext.define('Ung.view.config.Config', {
-    extend: 'Ext.container.Container',
+    extend: 'Ext.panel.Panel',
     xtype: 'ung.config',
-    layout: 'fit',
     requires: [
         'Ung.view.config.ConfigController',
-        'Ung.view.config.ConfigItem'
+        'Ung.view.config.ConfigItem',
+        'Ung.view.config.ConfigSettings'
     ],
 
     controller: 'config',
@@ -13,6 +13,8 @@ Ext.define('Ung.view.config.Config', {
     defaults: {
         border: false
     },
+
+    layout: 'card',
 
     items: [{
         border: false,
@@ -47,7 +49,7 @@ Ext.define('Ung.view.config.Config', {
         }]
     }],
     listeners: {
-        beforerender: 'onBeforeRender'
+        afterrender: 'onBeforeRender'
         //onPolicyChange: 'onPolicyChange'
     }
 });
